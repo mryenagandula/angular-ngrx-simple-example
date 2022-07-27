@@ -1,0 +1,9 @@
+<div class="container mt-4 pt-4" *ngIf="users$ | async as users">
+    <h3>List of Users ({{users.length}})</h3>
+    <ul class="list-group mt-4">
+        <li class="list-group-item" *ngFor="let user of users">
+            {{user.firstName}} {{user.secondName}}
+            <strong>(@{{user.userName}})</strong>
+        </li>
+    </ul>
+</div>
