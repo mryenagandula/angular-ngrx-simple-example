@@ -1,10 +1,13 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
+
+  public url= environment.letstalkUrl || 'http://localhost:3000'
   
   private headers:HttpHeaders= new HttpHeaders({
     'Content-Type':'application/json',
@@ -16,6 +19,6 @@ export class UsersService {
   constructor(private http:HttpClient) { }
 
   public loadUsers(){
-    return this.http.get(`http://localhost:3000/public/users`,{headers :this.headers})
+    return this.http.get(`${url}/public/users`,{headers :this.headers})
   }
 }
